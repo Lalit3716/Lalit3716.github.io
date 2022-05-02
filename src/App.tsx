@@ -10,10 +10,10 @@ const App = () => {
   return (
     <Box height="100vh" bgcolor="#e1dfdd">
       <Header />
-      <Container maxWidth="xl" sx={{ mt: 2 }}>
+      <Containera maxWidth="xl" sx={{ mt: 2 }}>
         <HeroTitle />
         <HeroAbout />
-      </Container>
+      </Containera>
     </Box>
   );
 };
