@@ -7,6 +7,7 @@ interface AnimProp {
   to: { [key: string]: number | string };
   threshold?: number;
   delay?: number;
+  loop?: boolean;
 }
 
 const useInViewAnim = (anim: AnimProp) => {
@@ -23,6 +24,10 @@ const useInViewAnim = (anim: AnimProp) => {
     if (inView) {
       api.start({
         ...anim.to,
+      });
+    } else if (anim.loop) {
+      api.start({
+        ...anim.from,
       });
     }
   }, [inView]);

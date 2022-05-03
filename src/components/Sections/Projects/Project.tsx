@@ -4,18 +4,18 @@ import { Card, CardContent, Typography } from "@mui/material";
 interface Props {
   title: string;
   description: string;
-  image: string;
+  image?: string;
 }
 
-const Project: React.FC = () => {
+const Project: React.FC<Props> = props => {
   return (
     <Card>
       <CardContent>
         <Typography variant="h5" component="h2">
-          Project title
+          {props.title}
         </Typography>
         <Typography variant="body2" component="p">
-          Project description
+          {props.description}
         </Typography>
       </CardContent>
     </Card>
