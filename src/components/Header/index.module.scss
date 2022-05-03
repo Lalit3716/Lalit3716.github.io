@@ -4,3 +4,9 @@
     border-bottom: 2px solid #000;
   }
 }
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+}

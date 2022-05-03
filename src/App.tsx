@@ -1,20 +1,15 @@
 import React from "react";
-import { Container, Typography, Stack, Box } from "@mui/material";
-import { useSpring } from "react-spring";
+import { Box } from "@mui/material";
 import Header from "./components/Header";
-import { AnimatedTypography } from "./components/Animations";
-import HeroTitle from "./components/HeroTitle";
-import HeroAbout from "./components/HeroAbout";
+import AboutSection from "./components/Sections/About";
+import ProjectsSection from "./components/Sections/Projects";
 
 const App = () => {
   return (
-    <Box height="100vh" bgcolor="#e1dfdd">
+    <Box minHeight="100vh" bgcolor="#e1dfdd">
       <Header />
-      <Container maxWidth="xl" sx={{ mt: 2 }}>
-        <HeroTitle />
-        <HeroAbout />
-      </Container>
-      <Typography>Git Expert</Typography>
+      <AboutSection />
+      <ProjectsSection />
     </Box>
   );
 };

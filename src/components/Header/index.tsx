@@ -29,7 +29,13 @@ const Header = () => {
       <AnimatedTypography variant="h1" style={titleAnim}>
         Lalit
       </AnimatedTypography>
-      <Stack direction="row" spacing={4} mr={2} alignItems="center">
+      <Stack
+        direction="row"
+        spacing={4}
+        mr={2}
+        alignItems="center"
+        display={{ xs: "none", md: "flex" }}
+      >
         <Link to="#">
           <AnimatedTypography
             variant="h5"
