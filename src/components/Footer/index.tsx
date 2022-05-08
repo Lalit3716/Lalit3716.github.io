@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import MUILink from "@mui/material/Link";
 import { GitHub, LinkedIn, Email } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import classes from "./index.module.scss";
 
 const Footer = () => (
   <Box component="footer" bgcolor="#131516" color="#d8d4cf" mt={5}>
@@ -13,31 +13,59 @@ const Footer = () => (
       <Stack spacing={2} direction="row" justifyContent="center">
         <Stack alignItems="center" spacing={-1.5}>
           <Typography variant="h6" component="h6" gutterBottom>
-            <MUILink href="" color="inherit">
+            <MUILink
+              href="https://github.com/Lalit3716"
+              color="inherit"
+              target="_none"
+            >
               <GitHub />
             </MUILink>
           </Typography>
-          <Typography variant="caption" component="h6" gutterBottom>
+          <Typography
+            variant="caption"
+            component="a"
+            gutterBottom
+            href="https://github.com/Lalit3716"
+            target="_none"
+            className={classes.links}
+          >
             Github
           </Typography>
         </Stack>
         <Stack alignItems="center" spacing={-1.5}>
           <Typography variant="h6" component="h6" gutterBottom>
-            <MUILink href="" color="inherit">
-              <LinkedIn />
+            <MUILink href="#" color="inherit">
+              <Email />
             </MUILink>
           </Typography>
-          <Typography variant="caption" component="h6" gutterBottom>
+          <Typography
+            variant="caption"
+            component="a"
+            gutterBottom
+            href="#"
+            className={classes.links}
+          >
             Email
           </Typography>
         </Stack>
         <Stack alignItems="center" spacing={-1.5}>
-          <Typography variant="h6" component="h6" gutterBottom>
-            <MUILink href="" color="inherit">
-              <Email />
+          <Typography variant="h6" component="a" gutterBottom>
+            <MUILink
+              color="inherit"
+              href="https://www.linkedin.com/in/lalit-kumar-singh-b48523228/"
+              target="_none"
+            >
+              <LinkedIn />
             </MUILink>
           </Typography>
-          <Typography variant="caption" component="h6" gutterBottom>
+          <Typography
+            variant="caption"
+            component="a"
+            href="https://www.linkedin.com/in/lalit-kumar-singh-b48523228/"
+            target="_none"
+            gutterBottom
+            className={classes.links}
+          >
             LinkedIn
           </Typography>
         </Stack>

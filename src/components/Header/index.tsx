@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./index.module.scss";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
-import { useSpring } from "react-spring";
+import { useSpring, easings } from "react-spring";
 import { AnimatedTypography } from "../Animations";
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
     from: { opacity: 0, transform: "translateX(-500px)" },
     to: { opacity: 1, transform: "translateX(0)" },
     config: {
-      duration: 1000,
+      duration: 500,
     },
   });
 
