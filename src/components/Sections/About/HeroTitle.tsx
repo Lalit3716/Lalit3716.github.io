@@ -1,89 +1,112 @@
-import React from "react";
-import { Stack, Box } from "@mui/material";
-import { useSpring, animated } from "react-spring";
+import React, { useState, useEffect } from "react";
+import { useSpring } from "react-spring";
+import { Stack } from "@mui/material";
 import { AnimatedTypography } from "../../Animations/index";
 
-const HeroTitle = () => {
-  const dynamicAnim = (delay: number) => {
-    return useSpring({
-      from: { opacity: 0, transform: "translateY(-100px)" },
-      to: { opacity: 1, transform: "translateY(0)" },
-      delay,
-    });
-  };
+const words = ["Web Developer", "React Developer", "Android Developer"];
 
-  const delay = 50;
+let speedInterval: NodeJS.Timer;
+let nextIndexInterval: NodeJS.Timer;
+let timeout: NodeJS.Timeout;
+
+const HeroTitle = () => {
+  const [index, setIndex] = useState(0);
+  const [nextIndex, setNextIndex] = useState(0);
+  const [speed, setSpeed] = useState(200);
+  const [isAnimating, setIsAnimating] = useState(true);
+  const cursorBlinkAnim = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 500 },
+    loop: true,
+  });
+
+  useEffect(() => {
+    speedInterval = setInterval(() => {
+      setSpeed(prevSpeed => prevSpeed - 10);
+    }, 100);
+
+    return () => {
+      clearInterval(speedInterval);
+      clearInterval(nextIndexInterval);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (nextIndexInterval) {
+      clearInterval(nextIndexInterval);
+    }
+    nextIndexInterval = setInterval(() => {
+      if (isAnimating) {
+        setNextIndex(prevNextIndex => {
+          const nextIndex = prevNextIndex + 1;
+          return nextIndex;
+        });
+      }
+    }, speed);
+  }, [speed]);
+
+  useEffect(() => {
+    if (nextIndex === words[index].length) {
+      setIsAnimating(false);
+      timeout = setTimeout(() => {
+        setIsAnimating(true);
+        setNextIndex(0);
+        setIndex(prevIndex => (prevIndex + 1) % words.length);
+        setSpeed(200);
+      }, 2000);
+    }
+  }, [nextIndex]);
 
   return (
-    <Stack spacing={0} color="black">
-      <Stack
-        direction="row"
-        spacing={{ xs: 1, md: 3 }}
-        alignItems={{ md: "center", xs: "flex-start" }}
+    <Stack direction="column" alignItems="center">
+      <AnimatedTypography
+        sx={{
+          fontSize: {
+            xs: "2rem",
+            sm: "3rem",
+          },
+        }}
+        textAlign="center"
       >
-        <Stack direction="row" color="#da2626">
-          {Array.from("Full").map((l, i) => {
-            return (
-              <AnimatedTypography
-                variant="h1"
-                fontWeight="800"
-                fontSize={{ xs: "3rem", md: "5rem" }}
-                style={dynamicAnim(i * delay)}
-                key={i}
-              >
-                {l}
-              </AnimatedTypography>
-            );
-          })}
-        </Stack>
-        <Stack direction="row" alignItems={{ md: "center", xs: "flex-start" }}>
-          {Array.from("Stack").map((l, i) => {
-            return (
-              <AnimatedTypography
-                variant="h1"
-                fontWeight="800"
-                fontSize={{ xs: "3rem", md: "5rem" }}
-                style={dynamicAnim((i + 4) * delay)}
-                key={i}
-              >
-                {l}
-              </AnimatedTypography>
-            );
-          })}
-        </Stack>
-      </Stack>
-      <Stack direction="row" spacing={{ md: 3, xs: 1 }}>
-        <Stack direction="row">
-          {Array.from("Web").map((l, i) => {
-            return (
-              <AnimatedTypography
-                variant="h1"
-                fontWeight="800"
-                fontSize={{ xs: "3rem", md: "5rem" }}
-                style={dynamicAnim((i + 9) * delay)}
-                key={i}
-              >
-                {l}
-              </AnimatedTypography>
-            );
-          })}
-        </Stack>
-        <Stack direction="row" color="#da2626">
-          {Array.from("Developer").map((l, i) => {
-            return (
-              <AnimatedTypography
-                variant="h1"
-                fontWeight="800"
-                fontSize={{ xs: "3rem", md: "5rem" }}
-                style={dynamicAnim((i + 12) * delay)}
-                key={i}
-              >
-                {l}
-              </AnimatedTypography>
-            );
-          })}
-        </Stack>
-      </Stack>
+        Hi There!
+      </AnimatedTypography>
+      <AnimatedTypography
+        sx={{
+          fontSize: {
+            xs: "2rem",
+            sm: "3rem",
+          },
+        }}
+        textAlign="center"
+      >
+        I am Lalit and I am {index === 2 ? "an" : "a"}
+      </AnimatedTypography>
+      <AnimatedTypography
+        variant="h2"
+        sx={{
+          fontSize: {
+            xs: "2rem",
+            sm: "3rem",
+          },
+          fontWeight: "bold",
+        }}
+      >
+        {words[index].substring(0, nextIndex)}
+        <AnimatedTypography
+          variant="h2"
+          // @ts-ignore
+          component="span"
+          fontWeight={500}
+          style={cursorBlinkAnim}
+          sx={{
+            fontSize: "3rem",
+          }}
+        >
+          |
+        </AnimatedTypography>
+      </AnimatedTypography>
     </Stack>
   );
 };

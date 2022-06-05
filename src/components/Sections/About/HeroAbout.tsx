@@ -11,23 +11,23 @@ const HeroAbout = () => {
   });
 
   return (
-    <AnimatedStack spacing={4} maxWidth="md" mt={4} style={aboutAnim}>
+    <AnimatedStack spacing={3} maxWidth="md" mt={4} style={aboutAnim}>
       <Typography
         variant="h4"
-        fontWeight={200}
-        fontSize={{ xs: "1.5rem", md: "2rem" }}
+        fontWeight={300}
+        sx={{ fontSize: "1.7rem", sm: "2.5rem" }}
       >
-        PASSIONATE ABOUT WEB TECHNOLOGIES. I LOVE WORKING AT THE INTERSECTION OF
-        CREATIVITY AND USER FRIENDLY INTERFACES. I CREATE MEMORABLE WEB
-        EXPERIENCES.
+        Passionate about web technologies. I love working at the intersection of
+        creativity and user friendly interfaces. I create memorable web
+        experiences.
       </Typography>
       <Typography
         variant="h4"
-        fontWeight={200}
-        fontSize={{ xs: "1.5rem", md: "2rem" }}
+        fontWeight={300}
+        sx={{ fontSize: "1.7rem", sm: "2.5rem" }}
       >
-        WHEN I'M NOT BUILDING OR EXPLORING NEW WEB EXPERIENCES, I'M PROBABLY
-        LISTENING MUSIC OR PLAYING GAMES.
+        When I'm not building or exploring new web experiences, I'm probably
+        listening music or playing games.
       </Typography>
     </AnimatedStack>
   );

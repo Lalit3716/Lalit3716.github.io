@@ -24,3 +24,8 @@ export const fadeInFromBottom = {
   from: { opacity: 0, transform: "translateY(100px)" },
   to: { opacity: 1, transform: "translateY(0)" },
 };
+
+export const blink = {
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+};

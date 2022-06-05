@@ -49,7 +49,7 @@ const Footer = () => (
           </Typography>
         </Stack>
         <Stack alignItems="center" spacing={-1.5}>
-          <Typography variant="h6" component="a" gutterBottom>
+          <Typography variant="h6" gutterBottom>
             <MUILink
               color="inherit"
               href="https://www.linkedin.com/in/lalit-kumar-singh-b48523228/"

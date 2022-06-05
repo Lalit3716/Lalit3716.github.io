@@ -14,7 +14,7 @@ const ProjectsSection = () => {
   });
 
   return (
-    <Container maxWidth="xl" sx={{ mt: 3 }}>
+    <Container maxWidth="xl" sx={{ mt: 3 }} id="projects">
       <AnimatedTypography
         ref={ref}
         variant="h3"
