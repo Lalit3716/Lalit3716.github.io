@@ -3,7 +3,7 @@ const Projects = [
     id: "p1",
     title: "Homework Scheduler",
     description:
-      "Helps teachers decide homework deadlines by keeping a track of other commitments and assignments of the students. 🧑‍🏫🧑‍🎓. It allows teachers to post assignments and students to submit their work.",
+      "Helps teachers decide homework deadlines by keeping a track of other commitments and assignments of the students. 🧑‍🏫🧑‍🎓. It allows teachers to post assignments and also grade them and students to submit their work.",
     images: [
       "https://fossoverflow.dev/blog/homework-scheduler/ui.png",
       "https://fossoverflow.dev/blog/homework-scheduler/marks-and-feedback.png",
