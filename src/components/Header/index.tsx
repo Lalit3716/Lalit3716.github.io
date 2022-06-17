@@ -55,22 +55,22 @@ const Header = () => {
             About
           </AnimatedTypography>
         </Link>
-        <Link to="projects" smooth duration={500} style={{ cursor: "pointer" }}>
+        <Link to="skills" smooth duration={500} style={{ cursor: "pointer" }}>
           <AnimatedTypography
             variant="h5"
             style={linkAnim(200)}
             className={classes.link}
           >
-            Projects
+            Skills
           </AnimatedTypography>
         </Link>
-        <Link to="skills" smooth duration={500} style={{ cursor: "pointer" }}>
+        <Link to="projects" smooth duration={500} style={{ cursor: "pointer" }}>
           <AnimatedTypography
             variant="h5"
             style={linkAnim(500)}
             className={classes.link}
           >
-            Skills
+            Projects
           </AnimatedTypography>
         </Link>
         <Link to="contact" smooth duration={500} style={{ cursor: "pointer" }}>

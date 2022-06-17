@@ -11,7 +11,7 @@ interface Props {
   images: string[];
 }
 
-const Project: React.FC<Props> = props => {
+const Project: React.FC<Props> = (props) => {
   const { ref, animState } = useInViewAnim({
     ...fadeInFromBottom,
     delay: 1000,

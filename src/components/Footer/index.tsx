@@ -34,7 +34,10 @@ const Footer = () => (
         </Stack>
         <Stack alignItems="center" spacing={-1.5}>
           <Typography variant="h6" component="h6" gutterBottom>
-            <MUILink href="#" color="inherit">
+            <MUILink
+              href="mailto:lalitkumarsingh5050@gmail.com"
+              color="inherit"
+            >
               <Email />
             </MUILink>
           </Typography>
@@ -42,7 +45,7 @@ const Footer = () => (
             variant="caption"
             component="a"
             gutterBottom
-            href="#"
+            href="mailto:lalitkumarsingh5050@gmail.com"
             className={classes.links}
           >
             Email

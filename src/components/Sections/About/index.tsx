@@ -1,9 +1,16 @@
 import React from "react";
+import { useSpring } from "react-spring";
 import { Container, Grid, Box } from "@mui/material";
 import HeroTitle from "./HeroTitle";
 import HeroAbout from "./HeroAbout";
+import { AnimatedBox, fadeInFromRight } from "../../Animations";
 
 const AboutSection = () => {
+  const anim = useSpring({
+    ...fadeInFromRight,
+    delay: 800,
+  });
+
   return (
     <Container maxWidth="xl" sx={{ mt: 2 }} id="about">
       <Grid container>
@@ -14,12 +21,13 @@ const AboutSection = () => {
           <HeroAbout />
         </Grid>
         <Grid item xs={12} md={6} order={{ xs: 1, md: 3 }} mb={4}>
-          <Box
+          <AnimatedBox
             width="100%"
             height="100%"
             display="flex"
             justifyContent="center"
             alignItems="center"
+            style={anim}
           >
             <img
               style={{
@@ -29,7 +37,7 @@ const AboutSection = () => {
               }}
               src="/images/svgs/developer.svg"
             />
-          </Box>
+          </AnimatedBox>
         </Grid>
       </Grid>
     </Container>

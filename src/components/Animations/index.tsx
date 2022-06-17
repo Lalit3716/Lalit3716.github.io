@@ -1,9 +1,10 @@
-import { Stack, Typography, Card } from "@mui/material";
+import { Stack, Typography, Card, Box } from "@mui/material";
 import { animated } from "react-spring";
 
 export const AnimatedTypography = animated(Typography);
 export const AnimatedStack = animated(Stack);
 export const AnimatedCard = animated(Card);
+export const AnimatedBox = animated(Box);
 
 export const fadeInFromLeft = {
   from: { opacity: 0, transform: "translateX(-100px)" },

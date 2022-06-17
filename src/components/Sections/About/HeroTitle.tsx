@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSpring } from "react-spring";
 import { Stack } from "@mui/material";
-import { AnimatedTypography } from "../../Animations/index";
+import { AnimatedTypography, AnimatedStack } from "../../Animations/index";
 
 const words = ["Web Developer", "React Developer", "Android Developer"];
 
@@ -21,9 +21,18 @@ const HeroTitle = () => {
     loop: true,
   });
 
+  const fadeIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: {
+      duration: 500,
+    },
+    delay: 800,
+  });
+
   useEffect(() => {
     speedInterval = setInterval(() => {
-      setSpeed(prevSpeed => prevSpeed - 10);
+      setSpeed((prevSpeed) => prevSpeed - 10);
     }, 100);
 
     return () => {
@@ -39,7 +48,7 @@ const HeroTitle = () => {
     }
     nextIndexInterval = setInterval(() => {
       if (isAnimating) {
-        setNextIndex(prevNextIndex => {
+        setNextIndex((prevNextIndex) => {
           const nextIndex = prevNextIndex + 1;
           return nextIndex;
         });
@@ -53,14 +62,14 @@ const HeroTitle = () => {
       timeout = setTimeout(() => {
         setIsAnimating(true);
         setNextIndex(0);
-        setIndex(prevIndex => (prevIndex + 1) % words.length);
+        setIndex((prevIndex) => (prevIndex + 1) % words.length);
         setSpeed(200);
       }, 2000);
     }
   }, [nextIndex]);
 
   return (
-    <Stack direction="column" alignItems="center">
+    <AnimatedStack direction="column" alignItems="center" style={fadeIn}>
       <AnimatedTypography
         sx={{
           fontSize: {
@@ -81,7 +90,8 @@ const HeroTitle = () => {
         }}
         textAlign="center"
       >
-        I am Lalit and I am {index === 2 ? "an" : "a"}
+        I am Lalit and I am{" "}
+        {"aeiou".includes(words[index][0].toLowerCase()) ? "an" : "a"}
       </AnimatedTypography>
       <AnimatedTypography
         variant="h2"
@@ -107,7 +117,7 @@ const HeroTitle = () => {
           |
         </AnimatedTypography>
       </AnimatedTypography>
-    </Stack>
+    </AnimatedStack>
   );
 };
 
